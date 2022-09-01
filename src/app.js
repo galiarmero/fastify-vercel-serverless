@@ -1,20 +1,16 @@
-import autoload from '@fastify/autoload'
-import { fileURLToPath } from 'url'
-import { dirname, join } from 'path'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+import sensiblePlugin from './plugins/sensible.js'
+import utilPlugin from './plugins/util.js'
+import rootRoute from './routes/root.js'
+import exampleRoute from './routes/example/index.js'
 
 export default async function (fastify, opts) {
     const app = fastify
 
-    app.register(autoload, {
-      dir: join(__dirname, 'routes')
-    })
-  
-    app.register(autoload, {
-      dir: join(__dirname, 'plugins')
-    })
+    app.register(sensiblePlugin)
+    app.register(utilPlugin)
+
+    app.register(rootRoute)
+    app.register(exampleRoute)
   
     return app
 }
