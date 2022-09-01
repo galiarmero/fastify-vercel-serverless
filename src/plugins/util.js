@@ -1,9 +1,9 @@
-import fp from 'fastify-plugin'
+import fastifyPlugin from 'fastify-plugin'
 
 // The use of fastify-plugin is required to be able
 // to export the decorators to the outer scope
 
-export default fp(async function (fastify, opts) {
+export default fastifyPlugin(async function (fastify, opts) {
   fastify.decorate('util', {
     getGreeting: () => {
         const currentHour = new Date().getHours()

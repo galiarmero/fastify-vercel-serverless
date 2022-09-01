@@ -1,7 +1,7 @@
-import fp from 'fastify-plugin'
+import fastifyPlugin from 'fastify-plugin'
 import fastifySensible from '@fastify/sensible'
 
-export default fp(async (fastify, opts) => {
+export default fastifyPlugin(async (fastify, opts) => {
     fastify.register(fastifySensible, {
         errorHandler: false
     })
