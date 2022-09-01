@@ -3,4 +3,3 @@ export default async function root(fastify, opts) {
         return { root: true, message: fastify.util.getGreeting() }
     })
 }
-  
